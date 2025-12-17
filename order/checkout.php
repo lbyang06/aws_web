@@ -88,10 +88,10 @@ if (is_post() && isset($_POST['checkout'])) {
 
             $order_id = $_db->lastInsertId();
 
-            $order_no = 'ORD' . $order_id;
+            
 
-            $_db->prepare("UPDATE `order` SET order_no = ? WHERE id = ?")
-                ->execute([$order_no, $order_id]);
+            $_db->prepare("UPDATE `order` WHERE id = ?")
+                ->execute([$order_id]);
 
             $stmt = $_db->prepare("
                 INSERT INTO order_detail (order_id, product_id, unit, price, subtotal)
