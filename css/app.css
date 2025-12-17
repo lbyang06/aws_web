@@ -341,7 +341,7 @@ body {
   color: #1A1A1A;
 }
 
-input[name="qty"] {
+input[name="c-qty"] {
   width: 50px;
   padding: 8px;
   text-align: center;
@@ -356,7 +356,27 @@ input[name="qty"] {
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-input[name="qty"]:focus {
+input[name="c-qty"]:focus {
+  border-color: #8C7853;
+  background: #2D2D2D;
+  box-shadow: 0 0 0 2px rgba(140, 120, 83, 0.3);
+}
+input[name="menu_qty"] {
+  width: 50px;
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #525252;
+  outline: none;
+  background: #1A1A1A;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  color: #E8E8E8;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+input[name="menu_qty"]:focus {
   border-color: #8C7853;
   background: #2D2D2D;
   box-shadow: 0 0 0 2px rgba(140, 120, 83, 0.3);
@@ -623,4 +643,5 @@ a {
   form input[type="email"] {
     width: 100%;
   }
+
 }
