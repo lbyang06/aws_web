@@ -11,7 +11,7 @@ if (!empty($_SESSION['cart']) && is_array($_SESSION['cart'])) {
 
 if (is_post() && isset($_POST['update_cart'])) {
     $id = (int)$_POST['product_id'];
-    $qty = (int)$_POST['qty'];
+    $qty = (int)$_POST['c-qty'];
     if ($qty < 1) $qty = 1;
 
     if ($qty == 0) {
@@ -130,7 +130,7 @@ if (!empty($_SESSION['cart'])) {
                             <input type="hidden" name="product_id" value="<?= $p->id ?>">
                             <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
                                 <button type="button" class="qty-minus qty-btn">-</button>
-                                <input type="number" name="qty" value="<?= $qty ?>" min="1" max="100" 
+                                <input type="number" name="c-qty" value="<?= $qty ?>" min="1" max="20" 
                                        style="width:60px; text-align:center; padding:6px;">
                                 <button type="button" class="qty-plus qty-btn">+</button>
                                 <button type="submit" name="update_cart" class="a-btn" style="font-size:0.9em;">Update</button>
@@ -167,7 +167,7 @@ if (!empty($_SESSION['cart'])) {
 
 <script>
     document.querySelectorAll('.menu-item').forEach(item => {
-        const qtyInput = item.querySelector('input[name="qty"]');
+        const qtyInput = item.querySelector('input[name="c-qty"]');
         const btnPlus = item.querySelector('.qty-plus');
         const btnMinus = item.querySelector('.qty-minus');
 
