@@ -5,7 +5,7 @@
 $mysqli = new mysqli(
     'web-db.c6k7dftmrrpw.us-east-1.rds.amazonaws.com', // RDS Endpoint
     'admin',                                           // RDS User
-    'your-password',                                   // RDS Password
+    'MyPassword1212',                                   // RDS Password
     'php_session_db'                                   // Session DB
 );
 
@@ -297,3 +297,4 @@ function is_exists($value, $table, $field) {
     $stm->execute([$value]);
     return $stm->fetchColumn() > 0;
 }
+
