@@ -5,7 +5,7 @@ include 'head.php';
 
 if (is_post() && isset($_POST['add_to_cart'])) {
     $id = $_POST['product_id'];
-    $qty = (int)($_POST['c-qty'] ?? 1);
+    $qty = (int)($_POST['menu_qty'] ?? 1);
 
 
     if ($qty < 1) { $qty = 1; }
@@ -122,5 +122,6 @@ document.querySelectorAll('.menu-item').forEach(item => {
 <?php
 include 'foot.php';
 ?>
+
 
 
