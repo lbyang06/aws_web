@@ -49,7 +49,7 @@ $history = $stmt->fetchAll(PDO::FETCH_OBJ);
             </div>
         <?php else: ?>
             <?php foreach ($history as $h): 
-                $order_no = $h->order_no ?? 'ORD' . str_pad($h->id, 6, '0', STR_PAD_LEFT);
+                $order_no = $h->order_id ?? 'ORD' . str_pad($h->id, 6, '0', STR_PAD_LEFT);
                 $formatted_date = date('d M Y', strtotime($h->date));
                 $formatted_time = date('h:i A', strtotime($h->date));
             ?>
@@ -170,3 +170,4 @@ function truncate_text($text, $length = 40) {
 </style>
 
 <?php include '../foot.php'; ?>
+
