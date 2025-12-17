@@ -88,10 +88,6 @@ if (is_post() && isset($_POST['checkout'])) {
 
             $order_id = $_db->lastInsertId();
 
-            
-
-            $_db->prepare("UPDATE `order` WHERE id = ?")
-                ->execute([$order_id]);
 
             $stmt = $_db->prepare("
                 INSERT INTO order_detail (order_id, product_id, unit, price, subtotal)
@@ -111,7 +107,7 @@ if (is_post() && isset($_POST['checkout'])) {
 
             set_cart();
 
-            temp('info', "Order placed successfully! Your Order No: <strong>$order_no</strong>");
+            temp('info', "Order placed successfully! Your Order No: <strong>$order_id</strong>");
             redirect("detail.php?id=$order_id");
 
         } catch (Exception $e) {
