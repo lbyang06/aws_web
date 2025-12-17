@@ -199,7 +199,7 @@ function update_cart($id, $unit = 1) {
 
 // Global PDO object
 $_db = new PDO(
-    "mysql:host=php-mysql-db.c6k7dftmrrpw.us-east-1.rds.amazonaws.com;dbname=chaagee;charset=utf8mb4",
+    "mysql:host=web-db.c6k7dftmrrpw.us-east-1.rds.amazonaws.com;dbname=chaagee;charset=utf8mb4",
     "admin",
     "MyPassword1212",
     [
@@ -223,3 +223,4 @@ function is_exists($value, $table, $field) {
     $stm->execute([$value]);
     return $stm->fetchColumn() > 0;
 }
+
