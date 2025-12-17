@@ -5,7 +5,9 @@ include 'head.php';
 
 if (is_post() && isset($_POST['add_to_cart'])) {
     $id = $_POST['product_id'];
-    $qty = (int)$_POST['qty'];
+    $id  = (int)$_POST['product_id'];
+    $qty = (int)($_POST['menu_qty_'.$id] ?? 1);
+
     if ($qty < 1) { $qty = 1; }
     $_SESSION['cart'][$id] = ($_SESSION['cart'][$id] ?? 0) + $qty;
     temp('info', 'Item added to cart');
@@ -86,7 +88,11 @@ $coffee = $_db->query("SELECT * FROM product WHERE category_id = '$cat'");
                     <?= html_hidden('product_id', $c->id)?>
                     <section>
                         <button type="button" class="qty-minus qty-btn">-</button>
-                        <?= html_number('qty', 1, 20, 1) ?>
+                        <input type="number"
+                            name="menu_qty<?= $c->id ?>"
+                            value="1"
+                            min="1"
+                            max="20">
                         <button type="button" class="qty-plus qty-btn">+</button>
                         <button class="a-btn" name="add_to_cart">Add to cart</button>
                     </section>
@@ -99,7 +105,7 @@ $coffee = $_db->query("SELECT * FROM product WHERE category_id = '$cat'");
 
 <script>
 document.querySelectorAll('.menu-item').forEach(item => {
-    let qtyInput = item.querySelector('input[name="qty"]');
+    let qtyInput = item.querySelector('input[name="menu_qty"]');
     let btnPlus = item.querySelector('.qty-plus');
     let btnMinus = item.querySelector('.qty-minus');
     // Ensure default value is 1
