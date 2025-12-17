@@ -89,10 +89,8 @@ $coffee = $_db->query("SELECT * FROM product WHERE category_id = '$cat'");
                     <section>
                         <button type="button" class="qty-minus qty-btn">-</button>
                         <input type="number"
-                            name="menu_qty<?= $c->id ?>"
-                            value="1"
-                            min="1"
-                            max="20">
+                     <?= html_number('menu_qty', 1, 20, 1) ?>
+
                         <button type="button" class="qty-plus qty-btn">+</button>
                         <button class="a-btn" name="add_to_cart">Add to cart</button>
                     </section>
@@ -124,3 +122,4 @@ document.querySelectorAll('.menu-item').forEach(item => {
 <?php
 include 'foot.php';
 ?>
+
