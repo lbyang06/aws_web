@@ -116,24 +116,17 @@ if (is_post() && isset($_POST['checkout'])) {
 
         } catch (Exception $e) {
             $_db->rollBack();
-            flash('error', 'Order failed, please try again.');
+            temp('info', 'Order failed, please try again.');
             error_log("Checkout error: " . $e->getMessage()); 
         }
     } else {
-        flash('error', 'Please correct the errors below');
+        temp('info', 'Please correct the errors below');
     }
 }
 ?>
 
 <div class="container">
 
-    <?php if ($msg = flash('success')): ?>
-        <div class="alert success"><?= $msg ?></div>
-    <?php elseif ($msg = flash('error')): ?>
-        <div class="alert error"><?= $msg ?></div>
-    <?php elseif ($msg = flash('info')): ?>
-        <div class="alert info"><?= $msg ?></div>
-    <?php endif; ?>
 
     <!-- LEFT SIDEBAR -->
     <div class="sidebar">
