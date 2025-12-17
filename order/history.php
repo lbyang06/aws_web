@@ -5,7 +5,6 @@ include '../head.php';
 $stmt = $_db->prepare("
     SELECT 
         id,
-        order_no,
         date,
         customer_name,
         order_type,
@@ -61,7 +60,7 @@ $history = $stmt->fetchAll(PDO::FETCH_OBJ);
                         <div class="history-order-no">
                             <div style="font-size:0.9em; color:#aaa;">Order No.</div>
                             <strong style="font-size:1.4em; color:#ffd700;">
-                                <?= htmlspecialchars($order_no) ?>
+                                <?= htmlspecialchars($order_id) ?>
                             </strong>
                         </div>
 
